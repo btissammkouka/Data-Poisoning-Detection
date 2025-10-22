@@ -50,9 +50,8 @@ We implemented a **Convolutional Neural Network (CNN)** for CIFAR-10 classificat
 ### 2. Probabilistic Detection Pipeline
 1. **Feature Extraction**: Extract features from the **penultimate layer** (before output) of the CNN.  
 2. **Clean Reference Modeling**: Select 500 trusted clean samples per class and fit a **Multivariate Gaussian** (mean μₖ, covariance Σₖ).  
-3. **Regularization**: Add a small term (ϵ = 1×10⁻⁶) to Σₖ for numerical stability.  
-4. **Log-Likelihood Computation**:  
-   \[ \text{log-likelihood}(x) = -\frac{1}{2} (f(x) - μₖ)^T Σₖ^{-1} (f(x) - μₖ) \]
+3. **Regularization**: Add a small term ϵ to Σₖ for numerical stability.  
+4. **Log-Likelihood Computation**
 5. **Thresholding**: Samples below the **5th percentile** of clean likelihoods are flagged as **suspected poisoned**.  
 6. **Evaluation Metrics**: Precision, Recall, and F1-score.
 
