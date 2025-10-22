@@ -1,8 +1,7 @@
 # 🔒 Detection of Poisoned Data in Deep Learning Models
 
 ##  Project Overview
-This project is part of the **"Sécurité des systèmes d’intelligence artificielle"** module.  
-It focuses on detecting **poisoned data** within deep learning models trained on the **CIFAR-10** dataset using a **probabilistic anomaly detection approach**.
+This focuses on detecting **poisoned data** within deep learning models trained on the **CIFAR-10** dataset using a **probabilistic anomaly detection approach**.
 
 In this study, we investigated the vulnerability of deep learning models to data poisoning attacks and evaluated a probabilistic detection pipeline for identifying poisoned samples.  
 We demonstrated that even a well-performing CNN can be significantly impacted when a relatively small fraction of training data is poisoned.
