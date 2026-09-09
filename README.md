@@ -14,46 +14,7 @@ Computing log-likelihoods for all samples enabled us to flag low-likelihood poin
 ---
 
 ## 🧩 Methodology
-
-### 1. CNN Architecture
-We implemented a **Convolutional Neural Network (CNN)** for CIFAR-10 classification with the following components:
-
-#### 🧱 Convolutional Layers
-| Layer | Input → Output Filters | Kernel | Activation | Pooling |
-|--------|-------------------------|----------|-------------|----------|
-| Conv1 | 3 → 64 | 3×3 | ReLU + BatchNorm | MaxPool(2×2) |
-| Conv2 | 64 → 128 | 3×3 | ReLU + BatchNorm | MaxPool(2×2) |
-| Conv3 | 128 → 256 | 3×3 | ReLU + BatchNorm | MaxPool(2×2) |
-| Conv4 | 256 → 128 | 3×3 | ReLU + BatchNorm | MaxPool(2×2) |
-| Conv5 | 128 → 128 | 3×3 | ReLU + BatchNorm | MaxPool(2×2) |
-
-#### 🔗 Fully Connected Layers
-| Layer | Input → Output |
-|--------|----------------|
-| FC1 | 128 → 512 |
-| FC2 | 512 → 256 |
-| FC3 | 256 → 128 |
-| FC4 | 128 → 64 |
-| FC5 | 64 → 10 (output) |
-
-#### ⚙️ Training Setup
-- Optimizer: **Adam**
-- Learning Rate: **0.001**
-- Batch Size: **128**
-- Epochs: **50**
-- Loss Function: **Cross-Entropy Loss**
-- Device: **GPU (Google Colab)**
-
----
-
-### 2. Probabilistic Detection Pipeline
-1. **Feature Extraction**: Extract features from the **penultimate layer** (before output) of the CNN.  
-2. **Clean Reference Modeling**: Select 500 trusted clean samples per class and fit a **Multivariate Gaussian** (mean μₖ, covariance Σₖ).  
-3. **Regularization**: Add a small term ϵ to Σₖ for numerical stability.  
-4. **Log-Likelihood Computation**
-5. **Thresholding**: Samples below the **5th percentile** of clean likelihoods are flagged as **suspected poisoned**.  
-6. **Evaluation Metrics**: Precision, Recall, and F1-score.
-
+-READ THE ARTICLE--
 ---
 
 ## 📊 Results
